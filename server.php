@@ -4,7 +4,7 @@
 	// initializing variables
 	$username = "";
 	$email    = "";
-	7
+	
 
 	// connect to the database
 	$db = mysqli_connect('localhost', 'root', '', 'registration');

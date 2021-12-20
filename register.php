@@ -19,7 +19,6 @@
   <div class="header">
   	<h2>Register</h2>
   </div>
-	
   <form method="post" action="register.php">
   	<?php// include('errors.php'); ?>
 	<label id="error" name="error" style="display:none"></label>
@@ -35,10 +34,10 @@
   	  <label>Password</label>
   	  <input type="password" name="password_1" id="password_1" required onfocus=”javascript:document.getElementById(this.id).value = ”" />
   	</div>
-  	<div class="input-group">
+  	<!--<div class="input-group">
   	  <label>Confirm password</label>
   	  <input type="password" name="password_2" id="password_2" required onfocus=”javascript:document.getElementById(this.id).value = ””/>
-  	</div>
+  	</div>-->
   	<div class="input-group">
   	  <button type="submit" class="btn" name="reg_user">Register</button>
   	</div>
@@ -68,7 +67,7 @@
 			$username = valid( $_POST["username"] );
 			$email = valid( $_POST["email"] );
 			$password_1 = valid( $_POST["password_1"] );
-			$password_2 = valid( $_POST["password_2"] );
+			//$password_2 = valid( $_POST["password_2"] );
 			$password = password_hash($password, PASSWORD_DEFAULT); //creates a new password hash using a strong one-way hashing algorithm
 			
 			/* if (empty($username)) { 
