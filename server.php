@@ -102,8 +102,8 @@
 				  VALUES('$title', '$body')";
 		mysqli_query($db, $query);
 		$_SESSION['username'] = $username;
-		//$_SESSION['title'] = $title;
-		//$_SESSION['body'] = $body;
+		//$_SESSION['titleQ'] = $title;
+		//$_SESSION['bodyQ'] = $body;
 		$_SESSION['successQ'] = "You have submit your Question"; //da cambiare
 		header('location: index.php');
 	}*/

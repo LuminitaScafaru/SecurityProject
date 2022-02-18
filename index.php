@@ -60,22 +60,22 @@
 			</h3>
 		  </div>
 		<?php endif ?>
-		<?php if (isset($_SESSION['title'])) : ?>
+		<?php if (isset($_SESSION['titleQ'])) : ?>
 		  <div class="error success" >
 			<h3>
 			  <?php 
-				echo $_SESSION['title']; 
-				unset($_SESSION['title']);
+				echo $_SESSION['titleQ']; 
+				unset($_SESSION['titleQ']);
 			  ?>
 			</h3>
 		  </div>
 		<?php endif ?>
-		<?php if (isset($_SESSION['body'])) : ?>
+		<?php if (isset($_SESSION['bodyQ'])) : ?>
 		  <div class="error success" >
 			<h3>
 			  <?php 
-				echo $_SESSION['body']; 
-				unset($_SESSION['body']);
+				echo $_SESSION['bodyQ']; 
+				unset($_SESSION['bodyQ']);
 			  ?>
 			</h3>
 		  </div>
