@@ -4,15 +4,15 @@
 	// initializing variables
 	$username = "";
 	$email    = "";
-	
+	$errors=array();
 
 	// connect to the database
 	$db = mysqli_connect('localhost', 'root', '', 'registration');
 	
-	/*if (!$db) {
+	if (!$db) {
 		die("Connection failed: " . mysqli_connect_error());
 	}
-	echo "Connected successfully";*/
+	echo "Connected successfully";
 
 	// REGISTER USER
 	if (isset($_POST['reg_user'])) {
