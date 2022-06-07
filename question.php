@@ -45,5 +45,43 @@
 				<button type="submit" class="btn" name="sub_question">Submit your question</button>
 			</div>
 		</form>
+		<?php
+        
+            if( isset( $_POST["sub_question"] ) )
+            {
+
+                function valid($data){
+                    $data=trim(stripslashes(htmlspecialchars($data)));
+                    return $data;
+                }
+                $titleQ = valid( $_POST["titleQ"] );
+                
+                $titleQ = addslashes($question); //aggiunge delle \ quando ci sono ' " \
+                $q = "SELECT * FROM question WHERE question = '$question'";
+                $result = mysqli_query($conn,$q);
+                if(mysqli_error($conn))
+                    echo "<script>window.alert('Some Error Occured. Try Again or Contact Us.');</script>";
+                else if( $no == "Category"){
+                    echo "<script>window.alert('Choose a Category.');</script>";
+                }
+                else if( mysqli_num_rows($result) == 0 ){
+                    $query = "INSERT INTO quans VALUES(NULL, '$question', NULL,'".$_SESSION['user']."',NULL)";
+                    $query1 = "INSERT INTO quacat SELECT q.id, c.name FROM quans as q, category as c WHERE q.question = '".$question."' AND c.name = '".$_POST['cat']."'";
+                    mysqli_query( $conn, $query);
+                    if(mysqli_query( $conn, $query1)){
+                        echo "<style>#sf{display: none;} #ask-ta{display:block;}</style>";
+                    }
+                    else{
+                        echo "<script>window.alert('Some Error Occured. Try Again or Contact Us.');</script>";
+                    }
+                }
+                else{
+                    echo "<script>window.alert('Question was already Asked. Search it on Home Page.');</script>";
+                }
+                
+                mysqli_close($conn);
+            }
+        
+        ?>
 	</body>
 </html>
